@@ -18,7 +18,7 @@ export default function DashboardPage() {
   const [warnings, setWarnings] = useState<string[]>([])
   const [autoRefresh, setAutoRefresh] = useState(true)
   const [startDate, setStartDate] = useState("2025-11-22T00:00")
-  const [endDate, setEndDate] = useState("2025-11-24T00:00")
+  const [endDate, setEndDate] = useState("2025-12-06T00:00")
 
   const fetchData = async () => {
     try {
