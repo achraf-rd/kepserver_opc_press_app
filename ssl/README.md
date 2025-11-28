@@ -1,4 +1,4 @@
-# SSL Certificates for achrafrachid.info
+# SSL Certificates for achrafrachid.salon
 
 This directory should contain your SSL certificates:
 
@@ -17,8 +17,8 @@ sudo apt install certbot python3-certbot-nginx
 sudo certbot certonly --standalone -d achrafrachid.salon -d www.achrafrachid.salon
 
 # Copy certificates to this directory
-sudo cp /etc/letsencrypt/live/achrafrachid.salon/fullchain.pem ./achrafrachid.info.crt
-sudo cp /etc/letsencrypt/live/achrafrachid.salon/privkey.pem ./achrafrachid.info.key
+sudo cp /etc/letsencrypt/live/achrafrachid.salon/fullchain.pem ./achrafrachid.salon.crt
+sudo cp /etc/letsencrypt/live/achrafrachid.salon/privkey.pem ./achrafrachid.salon.key
 ```
 
 ### Option 2: Commercial SSL Provider
@@ -28,9 +28,9 @@ sudo cp /etc/letsencrypt/live/achrafrachid.salon/privkey.pem ./achrafrachid.info
 ### Option 3: Self-signed (Development only)
 ```bash
 openssl req -x509 -nodes -days 365 -newkey rsa:2048 \
-  -keyout achrafrachid.info.key \
-  -out achrafrachid.info.crt \
-  -subj "/C=MA/ST=State/L=City/O=Organization/OU=OrgUnit/CN=achrafrachid.info"
+  -keyout achrafrachid.salon.key \
+  -out achrafrachid.salon.crt \
+  -subj "/C=MA/ST=State/L=City/O=Organization/OU=OrgUnit/CN=achrafrachid.salon"
 ```
 
 ## File permissions:

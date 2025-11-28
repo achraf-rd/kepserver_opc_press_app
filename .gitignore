@@ -25,4 +25,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# SSL certificates (keep private keys secure)
 *.key
+ssl/*.key
+ssl/*.crt
