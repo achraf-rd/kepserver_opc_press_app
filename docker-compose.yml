@@ -7,8 +7,9 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf:ro
-      - ./ssl:/etc/nginx/ssl:ro
+      - ./achrafrachid.salon.crt:/etc/nginx/ssl/achrafrachid.salon.crt:ro
+      - ./achrafrachid.salon.key:/etc/nginx/ssl/achrafrachid.salon.key:ro
+
     depends_on:
       - nextjs
     restart: unless-stopped
