@@ -42,7 +42,6 @@ export default function DashboardPage() {
       if (data.warnings) {
         setWarnings(data.warnings)
       }
-      console.log("Fetched global KPI:", data)
       setGlobalKPI(data)
     } catch (error) {
       console.error("Error fetching dashboard data:", error)

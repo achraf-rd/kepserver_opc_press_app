@@ -47,7 +47,6 @@ export async function GET(request: NextRequest) {
         }
 
         const pbQuery = `SELECT * FROM ${pressId}_pb ${dateFilter} ORDER BY _TIMESTAMP`
-        console.log(pbQuery, params_array)
         const { data: pbData, error: pbError } = await safeQuery<DataPoint[]>(
           pbQuery,
           params_array,
@@ -78,7 +77,6 @@ export async function GET(request: NextRequest) {
         }
 
         const kpi = calculatePressKPI(pressId, pbData, pmData, memData, cmData)
-        console.log(`Calculated KPI for ${pressId}:`, kpi)
         pressKPIs.push(kpi)
       } catch (error) {
         console.error(`Error processing ${pressId}:`, error)

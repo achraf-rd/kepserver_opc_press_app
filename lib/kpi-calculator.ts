@@ -48,7 +48,6 @@ export function calculatePressKPI(
   if (!config) {
     throw new Error(`Configuration not found for ${pressId}`)
   }
-  console.log(`config:`, config)
   const tempsProductionPlanifie = config.temps_production_planifie * 60 // Convert hours to minutes
   const tempsCycleIdealSeconds = config.temps_cycle_ideal // Cycle time in seconds per piece
   const tempsCycleIdealMinutes = tempsCycleIdealSeconds / 60 // Convert to minutes per piece
@@ -62,7 +61,6 @@ export function calculatePressKPI(
   const nbPiecesBonnes = validPbData.length > 0 ? validPbData.reduce((sum, d) => sum + Number.parseFloat(d._VALUE), 0) : 0
   const nbPiecesMauvaises = validPmData.length > 0 ? validPmData.reduce((sum, d) => sum + Number.parseFloat(d._VALUE), 0) : 0
   const consommationMatiere = validCmData.length > 0 ? Number.parseFloat(validCmData[validCmData.length - 1]._VALUE) : 0
-  console.log(`nbPiecesBonnes: ${nbPiecesBonnes}, nbPiecesMauvaises: ${nbPiecesMauvaises}, consommationMatiere: ${consommationMatiere}`)
   const nbPiecesTotales = nbPiecesBonnes + nbPiecesMauvaises
 
   // Calculate downtime from actual data
@@ -76,8 +74,6 @@ export function calculatePressKPI(
   // 2. Performance
   const tempsExecutionMin = tempsExecution
   const cadenceReelle = tempsExecutionMin > 0 ? nbPiecesTotales / tempsExecutionMin : 0 // Actual pieces per minute
-  console.log(`tempsExecutionMin: ${tempsExecutionMin}, nbPiecesTotales: ${nbPiecesTotales}, cadenceTheorique: ${cadenceTheorique} pieces/min`)
-  console.log(`Calculated performance components - Actual rate: ${cadenceReelle}, Theoretical rate: ${cadenceTheorique}`)
   const performance = cadenceTheorique > 0 ? Math.min(cadenceReelle / cadenceTheorique, 1) : 0
 
   // 3. Qualité (Quality)
